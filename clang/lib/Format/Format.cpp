@@ -509,6 +509,9 @@ template <> struct MappingTraits<FormatStyle> {
     IO.mapOptional("TabWidth", Style.TabWidth);
     IO.mapOptional("TypenameMacros", Style.TypenameMacros);
     IO.mapOptional("UseTab", Style.UseTab);
+
+    IO.mapOptional("AlignMemberAccess", Style.AlignMemberAccess);
+    IO.mapOptional("BreakBraceInitializer", Style.BreakBraceInitializer);
   }
 };
 
