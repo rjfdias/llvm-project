@@ -1904,6 +1904,7 @@ struct FormatStyle {
 
   std::vector<std::string> AlignMemberAccess;
   bool BreakBraceInitializer;
+  std::vector<std::string> CustomizeConditionCheckFunctions;
 
   bool operator==(const FormatStyle &R) const {
     return AccessModifierOffset == R.AccessModifierOffset &&
@@ -1951,6 +1952,7 @@ struct FormatStyle {
                R.ConstructorInitializerIndentWidth &&
            ContinuationIndentWidth == R.ContinuationIndentWidth &&
            Cpp11BracedListStyle == R.Cpp11BracedListStyle &&
+           CustomizeConditionCheckFunctions == R.CustomizeConditionCheckFunctions &&
            DerivePointerAlignment == R.DerivePointerAlignment &&
            DisableFormat == R.DisableFormat &&
            ExperimentalAutoDetectBinPacking ==
