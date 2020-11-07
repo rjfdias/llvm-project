@@ -763,6 +763,17 @@ unsigned ContinuationIndenter::addTokenOnNewLine(LineState &State,
     Penalty += Style.PenaltyBreakFirstLessLess;
 
   State.Column = getNewLineColumn(State);
+  if (Style.AlignBuilderCallChain && startsSegmentOfBuilderTypeCall(Current)) {
+    // Change State.Column align to the first MemberAccess position.
+    const FormatToken* Token = State.Line->First;
+    for(; Token && !Token->isMemberAccess(); Token = Token->Next) {
+      // Do nothing, fast seek to the first member access token on th line.
+    }
+    // If found and the token is not the current one, adjust alignment.
+    if (Token && Token != State.NextToken) {
+      State.Column = State.Stack.back().StartOfFunctionCall;
+    }
+  }
 
   // Indent nested blocks relative to this column, unless in a very specific
   // JavaScript special case where:
@@ -934,7 +945,7 @@ unsigned ContinuationIndenter::getNewLineColumn(const LineState &State) {
       if (find(Style.AlignMemberAccess.begin(),
            Style.AlignMemberAccess.end(),
            token) != Style.AlignMemberAccess.end()) {
-        //Unindent.
+        // Unindent.
         ContinuationIndent -= Style.ContinuationIndentWidth;
       }
   }

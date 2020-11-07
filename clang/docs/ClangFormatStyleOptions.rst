@@ -2382,6 +2382,9 @@ The result is:
   If ``true``, element inside brace intializer will be placed one per line.
 
 **CustomizeConditionCheckFunctions** (``std::vector<std::string>``)
-  A vector of Condition check functions that should be wrapped with compound conditions ``&&``, ``||``
+  A vector of condition check functions that should be wrapped with compound conditions ``&&``, ``||``
 
   For example: ['CHECK_ERR', 'TestAssert']
+
+**AlignBuilderCallChain** (``bool``)
+  If ``true``, align the indentation of member access to the first one in a builder call chain.
