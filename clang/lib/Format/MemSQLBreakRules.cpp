@@ -183,7 +183,7 @@ bool mustBreakBefore(const FormatStyle &Style,
         }
       }
 
-      if (L_Paren->Next->NewlinesBefore) {
+      if (L_Paren->ParameterCount > 3 || Right.TotalLength > Style.ColumnLimit ) {
         for (const FormatToken* Token = L_Paren->Next; Token && Token != &Right; Token = Token->Next) {
           if (Token->is(tok::l_paren) || Token->is(tok::l_brace) || Token->is(tok::l_square) || Token->is(tok::less)) {
             // skip inner (), {}, [], <>;
