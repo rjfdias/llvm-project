@@ -1906,6 +1906,7 @@ struct FormatStyle {
   bool BreakBraceInitializer;
   std::vector<std::string> CustomizeConditionCheckFunctions;
   bool AlignBuilderCallChain;
+  bool MemSQLAlwaysBreakAfterReturnType;
 
   bool operator==(const FormatStyle &R) const {
     return AccessModifierOffset == R.AccessModifierOffset &&
@@ -1934,6 +1935,8 @@ struct FormatStyle {
            AlwaysBreakAfterReturnType == R.AlwaysBreakAfterReturnType &&
            AlwaysBreakBeforeMultilineStrings ==
                R.AlwaysBreakBeforeMultilineStrings &&
+           MemSQLAlwaysBreakAfterReturnType ==
+               R.MemSQLAlwaysBreakAfterReturnType &&
            AlwaysBreakTemplateDeclarations ==
                R.AlwaysBreakTemplateDeclarations &&
            BinPackArguments == R.BinPackArguments &&

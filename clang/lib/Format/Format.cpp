@@ -514,6 +514,7 @@ template <> struct MappingTraits<FormatStyle> {
     IO.mapOptional("BreakBraceInitializer", Style.BreakBraceInitializer);
     IO.mapOptional("CustomizeConditionCheckFunctions", Style.CustomizeConditionCheckFunctions);
     IO.mapOptional("AlignBuilderCallChain", Style.AlignBuilderCallChain);
+    IO.mapOptional("MemSQLAlwaysBreakAfterReturnType", Style.MemSQLAlwaysBreakAfterReturnType);
   }
 };
 
